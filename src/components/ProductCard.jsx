@@ -1,7 +1,9 @@
-/* import React, { useState } from "react"; */
 import { AiFillDelete } from "react-icons/ai";
 
-const ProductCard = () => {
+const ProductCard = ({BASE_URL}) => {
+
+
+
   return (
     <div className="card p-3" style={{ width: "18rem" }}>
       <img

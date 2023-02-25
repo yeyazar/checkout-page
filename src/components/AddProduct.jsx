@@ -2,7 +2,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import axios from "axios";
 import { useState } from "react";
 
-const AddProduct = ({ BASE_URL }) => {
+const AddProduct = ({ BASE_URL, getProduct }) => {
   const [product, setProduct] = useState({
     name: "",
     price: 0,
@@ -14,6 +14,9 @@ const AddProduct = ({ BASE_URL }) => {
     e.preventDefault();
     const newProduct = product;
     postProduct(newProduct);
+    setTimeout(() => {
+      getProduct();
+    }, "2000")
   };
 
   const postProduct = async (newProduct) => {
@@ -23,6 +26,16 @@ const AddProduct = ({ BASE_URL }) => {
       console.log(error);
     }
   };
+
+  /* const getProduct = async () => {
+    try {
+      let data = await axios.get(BASE_URL);
+      data = data.data;
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }; */
 
   return (
     <form className="w-75 m-auto mt-3" onSubmit={handleSubmit}>
